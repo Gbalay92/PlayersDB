@@ -23,4 +23,8 @@ class JugadoresSql(context: Context?,name: String?,factory: SQLiteDatabase.Curso
         //Se crea la nueva versión de la tabla
         db?.execSQL(sqlCreate)
     }
+
+    fun onUpdate(db: SQLiteDatabase?,name: String, precio: Double, posicion: String, puntos: Integer){
+        db?.execSQL("INSERT INTO Jugadores (nombre,precio, posicion,puntos) VALUES($name,$precio,$posicion,$puntos)")
+    }
 }
