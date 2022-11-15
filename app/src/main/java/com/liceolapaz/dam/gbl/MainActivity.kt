@@ -1,5 +1,6 @@
 package com.liceolapaz.dam.gbl
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -23,17 +24,19 @@ class MainActivity : AppCompatActivity() {
 
 
         login.setOnClickListener {
-            if(user.text.toString()=="admin" && password.text.toString()=="liceo"){
-                txtError.text = "yuju"
-                val jugdb=JugadoresSql(this, "Database", null, 1)
-                val db = jugdb.writableDatabase
+            //if(user.text.toString()=="admin" && password.text.toString()=="liceo"){
 
+
+                /*val jugdb=JugadoresSql(this, "Database", null, 1)
+                val db = jugdb.writableDatabase*/
+                val intent = Intent(this@MainActivity, Jugador::class.java)
+                startActivity(intent)
             }
-            else{
+            //else{
                 txtError.text="Usuario y/o contraseña incorrectos"
-            }
+            //}
 
-        }
+        //}
 
 
 
