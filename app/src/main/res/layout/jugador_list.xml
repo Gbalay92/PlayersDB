@@ -6,8 +6,8 @@
     android:name="com.liceolapaz.dam.gbl.JugaodrFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginLeft="16dp"
-    android:layout_marginRight="16dp"
+    android:padding="10dp"
+    android:background="@drawable/border"
     app:layoutManager="LinearLayoutManager"
     tools:context=".JugaodrFragment"
     tools:listitem="@layout/jugador_item" />

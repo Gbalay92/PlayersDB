@@ -29,8 +29,8 @@ class MainActivity : AppCompatActivity() {
 
                 /*val jugdb=JugadoresSql(this, "Database", null, 1)
                 val db = jugdb.writableDatabase*/
-                val intent = Intent(this@MainActivity, Jugador::class.java)
-                startActivity(intent)
+                //val intent = Intent(this@MainActivity, MyJugadorRecyclerViewAdapter::class.java)
+                //startActivity(intent)
             }
             //else{
                 txtError.text="Usuario y/o contraseña incorrectos"

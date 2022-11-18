@@ -2,6 +2,8 @@
 <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/blue"
+    android:padding="5dp"
     android:rowCount="2"
     android:columnCount="2"
     >
@@ -9,26 +11,26 @@
     <TextView
         android:id="@+id/nombre"
         android:layout_columnWeight="1"
-        android:text="prueba"
+        android:text=""
         android:textAppearance="?attr/textAppearanceListItem" />
 
     <TextView
         android:id="@+id/posicion"
         android:layout_columnWeight="1"
         android:textAlignment="textEnd"
-        android:text="prueba"
+        android:text=""
         android:textAppearance="?attr/textAppearanceListItem" />
 
     <TextView
         android:id="@+id/precio"
         android:layout_columnWeight="1"
-        android:text="prueba"
+        android:text=""
         android:textAppearance="?attr/textAppearanceListItem" />
 
     <TextView
         android:id="@+id/puntos"
         android:layout_columnWeight="1"
         android:textAlignment="textEnd"
-        android:text="prueba"
+        android:text=""
         android:textAppearance="?attr/textAppearanceListItem" />
 </GridLayout>

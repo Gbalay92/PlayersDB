@@ -10,9 +10,6 @@ import android.view.View
 import android.view.ViewGroup
 import com.liceolapaz.dam.gbl.placeholder.PlaceholderContent
 
-/**
- * A fragment representing a list of Items.
- */
 class JugaodrFragment : Fragment() {
 
     private var columnCount = 1
@@ -38,7 +35,7 @@ class JugaodrFragment : Fragment() {
                     columnCount <= 1 -> LinearLayoutManager(context)
                     else -> GridLayoutManager(context, columnCount)
                 }
-                adapter = MyJugaodrRecyclerViewAdapter(PlaceholderContent.ITEMS)
+               // adapter = MyJugadorRecyclerViewAdapter(PlaceholderContent.ITEMS)
             }
         }
         return view
@@ -46,10 +43,8 @@ class JugaodrFragment : Fragment() {
 
     companion object {
 
-        // TODO: Customize parameter argument names
         const val ARG_COLUMN_COUNT = "column-count"
 
-        // TODO: Customize parameter initialization
         @JvmStatic
         fun newInstance(columnCount: Int) =
             JugaodrFragment().apply {
