@@ -6,33 +6,39 @@
     android:padding="50dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Jugador">
+    >
     <TextView
         android:layout_columnWeight="1"
         android:padding="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Codigo"/>
+
     <EditText
         android:id="@+id/codigo"
-        android:padding="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_columnWeight="30"
         android:layout_columnSpan="2"
-        android:inputType="text" />
+        android:layout_columnWeight="1"
+        android:inputType="text"
+        android:padding="20dp" />
     <TextView android:layout_columnWeight="1"
         android:padding="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Nombre"/>
-    <EditText android:id="@+id/Nombre"
-        android:padding="20dp"
+
+    <EditText
+        android:id="@+id/Nombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_columnWeight="1"
+        android:layout_row="0"
+        android:layout_column="1"
         android:layout_columnSpan="2"
-        android:inputType="textPassword"/>
+        android:layout_columnWeight="1"
+        android:inputType="textPassword"
+        android:padding="20dp" />
+
     <TextView android:layout_columnWeight="1"
         android:padding="20dp"
         android:layout_width="wrap_content"

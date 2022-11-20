@@ -24,19 +24,18 @@ class MainActivity : AppCompatActivity() {
 
 
         login.setOnClickListener {
-            //if(user.text.toString()=="admin" && password.text.toString()=="liceo"){
+
+            val intent = Intent(this@MainActivity,JugadoresRecycler::class.java)
+            startActivity(intent)
+            /*if(user.text.toString()=="admin" && password.text.toString()=="liceo"){
 
 
-                /*val jugdb=JugadoresSql(this, "Database", null, 1)
-                val db = jugdb.writableDatabase*/
-                //val intent = Intent(this@MainActivity, MyJugadorRecyclerViewAdapter::class.java)
-                //startActivity(intent)
             }
-            //else{
+            else{
                 txtError.text="Usuario y/o contraseña incorrectos"
-            //}
+            }*/
 
-        //}
+        }
 
 
 
