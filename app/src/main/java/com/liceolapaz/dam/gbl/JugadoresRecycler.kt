@@ -2,6 +2,7 @@ package com.liceolapaz.dam.gbl
 
 import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
+import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
 import com.liceolapaz.dam.gbl.databinding.JugadorListBinding
 
@@ -26,6 +27,10 @@ class JugadoresRecycler : AppCompatActivity() {
         binding.list.adapter = adapt
 
 
+    }
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.app_menu, menu)
+        return true
     }
 
     override fun onDestroy() {
