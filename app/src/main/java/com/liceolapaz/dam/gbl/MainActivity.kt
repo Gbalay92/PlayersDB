@@ -1,11 +1,12 @@
 package com.liceolapaz.dam.gbl
 
+import android.app.ActionBar
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
     private lateinit var user: EditText
@@ -21,6 +22,7 @@ class MainActivity : AppCompatActivity() {
         password=findViewById(R.id.inputPassword)
         txtError=findViewById(R.id.txtError)
         login=findViewById(R.id.login)
+
 
 
         login.setOnClickListener {

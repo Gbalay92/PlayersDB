@@ -5,8 +5,7 @@
     android:columnCount="3"
     android:padding="50dp"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+    android:layout_height="match_parent">
     <TextView
         android:layout_columnWeight="1"
         android:padding="20dp"
@@ -32,8 +31,8 @@
         android:id="@+id/Nombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_row="0"
-        android:layout_column="1"
+        android:layout_row="1"
+        android:layout_column="2"
         android:layout_columnSpan="2"
         android:layout_columnWeight="1"
         android:inputType="textPassword"
