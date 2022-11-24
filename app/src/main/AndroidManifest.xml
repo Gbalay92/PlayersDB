@@ -27,6 +27,8 @@
         </activity>
         <activity android:name=".JugadoresRecycler"
             android:label="Jugadores disponibles"/>
+        <activity android:name=".Jugador"
+            android:label="Nuevo Jugador"/>
     </application>
 
 </manifest>

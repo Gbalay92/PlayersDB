@@ -1,8 +1,10 @@
 package com.liceolapaz.dam.gbl
 
+import android.content.Intent
 import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.liceolapaz.dam.gbl.databinding.JugadorListBinding
 
@@ -28,9 +30,21 @@ class JugadoresRecycler : AppCompatActivity() {
 
 
     }
+
+
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.app_menu, menu)
         return true
+    }
+    override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
+        R.id.action_nuevo -> {
+            val intent = Intent(this@JugadoresRecycler,Jugador::class.java)
+            startActivity(intent)
+            true
+        }
+        else -> {
+            super.onOptionsItemSelected(item)
+        }
     }
 
     override fun onDestroy() {
