@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.liceolapaz.dam.gbl.databinding.JugadorListBinding
 
 class JugadoresRecycler : AppCompatActivity() {
@@ -16,19 +18,30 @@ class JugadoresRecycler : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = JugadorListBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-        jugadoresDb= JugadoresSql(this)
+        setContentView(R.layout.jugador_list)
 
+        var list : List<Jugador> = mutableListOf()
+        jugadoresDb= JugadoresSql(this, "jugadores.db")
         db=jugadoresDb.readableDatabase
         val cursor = db.rawQuery("SELECT * FROM  Jugadores", null)
-        var adapt = ListaJugadores()
-        adapt.ListaJugadores(this, cursor)
+        while(cursor.moveToNext()){
+            var codigo=cursor.getInt(0)
+            var nombre=cursor.getString(1)
+            var precio=cursor.getInt(2)
+            var posicion=cursor.getString(3)
+            var puntos=cursor.getInt(4)
+            var j = Jugador(codigo,nombre,posicion,precio,puntos)
+            list+=j
 
-        binding.list.setHasFixedSize(true)
-        binding.list.adapter = adapt
+        }
+        initRecyclerView(list)
 
+    }
 
+    private fun initRecyclerView(cursor:List<Jugador>){
+        val recyclerview=findViewById<RecyclerView>(R.id.list)
+        recyclerview.layoutManager = LinearLayoutManager(this)
+        recyclerview.adapter=ListaJugadores(cursor)
     }
 
 
@@ -38,7 +51,7 @@ class JugadoresRecycler : AppCompatActivity() {
     }
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
         R.id.action_nuevo -> {
-            val intent = Intent(this@JugadoresRecycler,Jugador::class.java)
+            val intent = Intent(this@JugadoresRecycler,JugadorVista::class.java)
             startActivity(intent)
             true
         }

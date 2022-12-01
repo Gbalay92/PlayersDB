@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:padding="5dp"
     android:background="@color/grey"
-    tools:context=".Jugador"
+    tools:context=".JugadorVista"
     android:orientation="vertical">
         <GridLayout
             android:rowCount="6"
@@ -15,7 +15,7 @@
             android:background="@drawable/border"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:context=".Jugador">
+            tools:context=".JugadorVista">
 
             <TextView
                 android:layout_width="4dp"
@@ -28,6 +28,8 @@
 
             <EditText
                 android:id="@+id/codigo"
+                android:textColor="@color/white"
+                android:editable="false"
                 android:backgroundTint="@color/white"
                 android:layout_width="295dp"
                 android:layout_height="wrap_content"
@@ -35,7 +37,8 @@
                 android:layout_column="1"
                 android:layout_columnWeight="1"
                 android:inputType="text"
-                android:padding="15dp" />
+                android:padding="15dp"
+                tools:ignore="Deprecated" />
 
             <TextView
                 android:layout_columnWeight="1"
@@ -48,13 +51,14 @@
 
             <EditText
                 android:backgroundTint="@color/white"
+                android:textColor="@color/white"
                 android:id="@+id/nombre"
                 android:layout_width="175dp"
                 android:layout_height="wrap_content"
                 android:layout_row="1"
                 android:layout_column="1"
                 android:layout_columnWeight="1"
-                android:inputType="textPassword"
+                android:inputType="text"
                 android:padding="15dp"/>
             <TextView
                 android:layout_columnWeight="1"
@@ -67,6 +71,7 @@
             <EditText
                 android:backgroundTint="@color/white"
                 android:id="@+id/precio"
+                android:textColor="@color/white"
                 android:layout_row="2"
                 android:layout_column="1"
                 android:layout_width="wrap_content"
@@ -86,7 +91,7 @@
             <Spinner
                 android:id="@+id/posicion"
                 android:textColor="@color/white"
-                android:backgroundTint="@color/white"
+                android:backgroundTint="@color/black"
                 android:layout_row="3"
                 android:layout_column="1"
                 android:layout_columnWeight="2"
@@ -105,6 +110,7 @@
                 android:textAlignment="center" />
             <EditText
                 android:backgroundTint="@color/white"
+                android:textColor="@color/white"
                 android:id="@+id/puntos"
                 android:layout_row="4"
                 android:layout_column="1"

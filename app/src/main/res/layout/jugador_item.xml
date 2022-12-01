@@ -2,11 +2,12 @@
 <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/blue"
     android:padding="5dp"
     android:rowCount="2"
     android:columnCount="2"
-    >
+    tools:context=".JugadorItemViewHolder">
 
     <TextView
         android:id="@+id/nombre"

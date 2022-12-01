@@ -27,7 +27,7 @@
         </activity>
         <activity android:name=".JugadoresRecycler"
             android:label="Jugadores disponibles"/>
-        <activity android:name=".Jugador"
+        <activity android:name=".JugadorVista"
             android:label="Nuevo Jugador"/>
     </application>
 
