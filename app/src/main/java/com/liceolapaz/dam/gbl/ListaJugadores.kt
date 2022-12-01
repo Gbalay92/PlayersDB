@@ -9,8 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 class ListaJugadores(var list: List<Jugador>) : RecyclerView.Adapter<JugadorItemViewHolder>() {
 
 
-
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): JugadorItemViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         return JugadorItemViewHolder(inflater.inflate(R.layout.jugador_item, parent, false))

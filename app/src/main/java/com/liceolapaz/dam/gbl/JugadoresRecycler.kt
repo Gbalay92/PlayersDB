@@ -12,7 +12,6 @@ import com.liceolapaz.dam.gbl.databinding.JugadorListBinding
 
 class JugadoresRecycler : AppCompatActivity() {
 
-    lateinit var binding : JugadorListBinding
     lateinit var jugadoresDb : JugadoresSql
     lateinit var db: SQLiteDatabase
 
@@ -32,16 +31,16 @@ class JugadoresRecycler : AppCompatActivity() {
             var puntos=cursor.getInt(4)
             var j = Jugador(codigo,nombre,posicion,precio,puntos)
             list+=j
-
+            println("$codigo, $nombre, $precio, $posicion, $puntos")
         }
         initRecyclerView(list)
 
     }
 
-    private fun initRecyclerView(cursor:List<Jugador>){
+    private fun initRecyclerView(list:List<Jugador>){
         val recyclerview=findViewById<RecyclerView>(R.id.list)
         recyclerview.layoutManager = LinearLayoutManager(this)
-        recyclerview.adapter=ListaJugadores(cursor)
+        recyclerview.adapter=ListaJugadores(list)
     }
 
 

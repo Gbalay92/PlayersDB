@@ -13,29 +13,29 @@
         android:id="@+id/nombre"
         android:textColor="@color/white"
         android:layout_columnWeight="1"
-        android:text=""
-        android:textAppearance="?attr/textAppearanceListItem" />
+        android:text="hola"
+        />
 
     <TextView
         android:textColor="@color/white"
         android:id="@+id/posicion"
         android:layout_columnWeight="1"
         android:textAlignment="textEnd"
-        android:text=""
-        android:textAppearance="?attr/textAppearanceListItem" />
+        android:text="prueba"
+        />
 
     <TextView
         android:textColor="@color/white"
         android:id="@+id/precio"
         android:layout_columnWeight="1"
-        android:text=""
-        android:textAppearance="?attr/textAppearanceListItem" />
+        android:text="prueba 3"
+       />
 
     <TextView
         android:textColor="@color/white"
         android:id="@+id/puntos"
         android:layout_columnWeight="1"
         android:textAlignment="textEnd"
-        android:text=""
-        android:textAppearance="?attr/textAppearanceListItem" />
+        android:text="puntacos"
+        />
 </GridLayout>
