@@ -32,5 +32,25 @@ class JugadoresSql(context: Context?, database : String)
 
     }
 
+    fun onDelete(db: SQLiteDatabase, id: String){
+        var sentencia = "DELETE FROM Jugadores WHERE codigo = '$id'"
+        db.execSQL(sentencia)
+    }
+
+
+    fun onAlter(db: SQLiteDatabase, id: String, name: String, precio: String, posicion: String, puntos: String){
+        println("nombre = '$name'" +
+            "precio='$precio'" +
+                    "posicion='$posicion'" +
+                    "puntos='$puntos'" +
+                    "WHERE codigo = '$id'")
+        var sentencia = "UPDATE Jugadores " +
+                "SET nombre = '$name', " +
+                "precio=$precio, " +
+                "posicion='$posicion', " +
+                "puntos=$puntos " +
+                "WHERE codigo =$id"
+        db.execSQL(sentencia)
+    }
 
 }

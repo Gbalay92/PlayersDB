@@ -33,7 +33,7 @@ class JugadoresRecycler : AppCompatActivity() {
             var puntos=cursor.getInt(4)
             var j = Jugador(codigo,nombre,posicion,precio,puntos)
             list+=j
-            println("$codigo, $nombre, $precio, $posicion, $puntos")
+            //println("$codigo, $nombre, $precio, $posicion, $puntos")
         }
         initRecyclerView(list)
 
