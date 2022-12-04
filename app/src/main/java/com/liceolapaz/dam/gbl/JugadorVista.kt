@@ -3,6 +3,7 @@ package com.liceolapaz.dam.gbl
 import android.content.Intent
 import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
+import android.view.ContextThemeWrapper
 import android.view.View
 import android.widget.Spinner
 import android.widget.Toast
@@ -51,7 +52,7 @@ class JugadorVista : AppCompatActivity() {
 
 
         binding.add.setOnClickListener {
-            val builder = AlertDialog.Builder(this)
+            val builder = AlertDialog.Builder(ContextThemeWrapper(this, R.style.AlertDialogCustom))
             builder.setTitle("ACEPTAR")
             builder.setMessage("Los datos se guardarán en la base de datos.¿Está seguro?")
             builder.setPositiveButton("SI") { dialog, which ->
@@ -80,7 +81,7 @@ class JugadorVista : AppCompatActivity() {
         }
 
         binding.delete.setOnClickListener {
-            val builder = AlertDialog.Builder(this)
+            val builder = AlertDialog.Builder(ContextThemeWrapper(this, R.style.AlertDialogCustom))
             builder.setTitle("ACEPTAR")
             builder.setMessage("Los datos se borrarán de la base de datos.¿Está seguro?")
             builder.setPositiveButton("SI") { dialog, which ->
@@ -96,6 +97,20 @@ class JugadorVista : AppCompatActivity() {
             }
             builder.show()
 
+
+        }
+
+        binding.cancel.setOnClickListener {
+            val builder = AlertDialog.Builder(ContextThemeWrapper(this, R.style.AlertDialogCustom))
+            builder.setTitle("ACEPTAR")
+            builder.setMessage("Los datos no se guardarán.¿Está seguro?")
+            builder.setPositiveButton("SI") { dialog, which ->
+                startActivity(volver)
+            }
+            builder.setNegativeButton("NO") { dialog, which ->
+
+            }
+            builder.show()
 
         }
     }
