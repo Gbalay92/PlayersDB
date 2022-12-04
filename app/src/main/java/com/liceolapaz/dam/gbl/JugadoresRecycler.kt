@@ -5,7 +5,9 @@ import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.liceolapaz.dam.gbl.databinding.JugadorListBinding
@@ -38,9 +40,14 @@ class JugadoresRecycler : AppCompatActivity() {
     }
 
     private fun initRecyclerView(list:List<Jugador>){
+        val manager=LinearLayoutManager(this)
+        val decoration=DividerItemDecoration(this, manager.orientation)
         val recyclerview=findViewById<RecyclerView>(R.id.list)
-        recyclerview.layoutManager = LinearLayoutManager(this)
-        recyclerview.adapter=ListaJugadores(list)
+        recyclerview.layoutManager = manager
+        recyclerview.adapter=ListaJugadores(list) { jugador ->
+            onItemSelected(jugador)
+        }
+        recyclerview.addItemDecoration(decoration)
     }
 
 
@@ -63,4 +70,16 @@ class JugadoresRecycler : AppCompatActivity() {
         super.onDestroy()
         db.close()
     }
+
+    fun onItemSelected(jugador : Jugador){
+        //Toast.makeText(this , jugador.nombre, Toast.LENGTH_LONG).show()
+        val intent = Intent(this@JugadoresRecycler,JugadorVista::class.java)
+        intent.putExtra("CODIGO", jugador.codigo.toString())
+        intent.putExtra("NAME", jugador.nombre)
+        intent.putExtra("POSICION", jugador.posicion)
+        intent.putExtra("PUNTOS", jugador.puntos.toString())
+        intent.putExtra("PRECIO", jugador.precio.toString())
+        startActivity(intent)
+    }
+
 }

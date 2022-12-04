@@ -29,7 +29,7 @@
             <EditText
                 android:id="@+id/codigo"
                 android:textColor="@color/white"
-                android:editable="false"
+                android:enabled="false"
                 android:backgroundTint="@color/white"
                 android:layout_width="295dp"
                 android:layout_height="wrap_content"
@@ -98,6 +98,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="15dp"
+                android:popupBackground="@color/black"
                 android:entries="@array/array_position"/>
 
             <TextView

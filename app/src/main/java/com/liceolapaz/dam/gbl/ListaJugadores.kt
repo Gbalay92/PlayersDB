@@ -1,12 +1,13 @@
 package com.liceolapaz.dam.gbl
 
 
+import android.content.DialogInterface
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
 
-class ListaJugadores(var list: List<Jugador>) : RecyclerView.Adapter<JugadorItemViewHolder>() {
+class ListaJugadores(var list: List<Jugador>, private val onClickListener: (Jugador)-> Unit) : RecyclerView.Adapter<JugadorItemViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): JugadorItemViewHolder {
@@ -19,6 +20,6 @@ class ListaJugadores(var list: List<Jugador>) : RecyclerView.Adapter<JugadorItem
 
     override fun onBindViewHolder(holder: JugadorItemViewHolder, position: Int) {
         val item = list[position]
-        holder.render(item)
+        holder.render(item, onClickListener)
     }
 }
