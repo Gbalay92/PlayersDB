@@ -28,14 +28,15 @@ class JugadorVista : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = JugadorBinding.inflate(layoutInflater)
         var extra=intent.extras
+        val actionBar = supportActionBar
+
         if (extra==null){
             binding.delete.visibility= View.INVISIBLE
+            actionBar!!.title = "Nuevo jugador"
+        }else{
+            actionBar!!.title = intent?.getStringExtra("NAME")
+            }
 
-        }/*else{
-            binding.delete.layoutParams = ConstraintLayout.LayoutParams(
-                ConstraintLayout.LayoutParams.WRAP_CONTENT,
-                ConstraintLayout.LayoutParams.WRAP_CONTENT
-            )}*/
         val volver=Intent(this@JugadorVista, JugadoresRecycler::class.java)
         setContentView(binding.root)
         jugadoresDb=JugadoresSql(this, "jugadores.db")
@@ -49,6 +50,7 @@ class JugadorVista : AppCompatActivity() {
         binding.precio.setText(intent?.getStringExtra("PRECIO"))
         intent.getStringExtra("POSICION")
             ?.let { getIndex(binding.posicion, it) }?.let { binding.posicion.setSelection(it) }
+
 
 
         binding.add.setOnClickListener {

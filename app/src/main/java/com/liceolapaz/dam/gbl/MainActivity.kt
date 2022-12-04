@@ -27,15 +27,15 @@ class MainActivity : AppCompatActivity() {
 
         login.setOnClickListener {
 
-            val intent = Intent(this@MainActivity,JugadoresRecycler::class.java)
-            startActivity(intent)
-            /*if(user.text.toString()=="admin" && password.text.toString()=="liceo"){
+            if(user.text.toString()=="admin" && password.text.toString()=="liceo"){
 
+                val intent = Intent(this@MainActivity,JugadoresRecycler::class.java)
+                startActivity(intent)
 
             }
             else{
                 txtError.text="Usuario y/o contraseña incorrectos"
-            }*/
+            }
 
         }
 

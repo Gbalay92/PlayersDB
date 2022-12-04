@@ -57,7 +57,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/white"
-                android:inputType="text"
+                android:inputType="textPassword"
                 android:padding="10dp"
                 android:textColor="@color/white" />
 
@@ -73,13 +73,11 @@
 
             <TextView
                 android:id="@+id/txtError"
-                android:textColor="@color/white"
+                android:layout_marginStart="5dp"
                 android:layout_width="match_parent"
-                android:layout_height="34dp"
-                android:padding="40dp"
-                android:text=" "
-                android:textAlignment="center"
-                android:textSize="20sp"
+                android:layout_height="36dp"
+                android:text=""
+                android:textColor="@color/white"
                 android:textStyle="bold" />
 
         </LinearLayout>
