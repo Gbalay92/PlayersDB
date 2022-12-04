@@ -5,6 +5,8 @@ import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
 import android.view.View
 import android.widget.Spinner
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.liceolapaz.dam.gbl.databinding.JugadorBinding
@@ -49,27 +51,52 @@ class JugadorVista : AppCompatActivity() {
 
 
         binding.add.setOnClickListener {
-            id=binding.codigo.text.toString()
-            nombre = binding.nombre.text.toString()
-            position = binding.posicion.selectedItem.toString()
-            price = binding.precio.text.toString()
-            puntos = binding.puntos.text.toString()
-            if(binding.codigo.text.toString().isEmpty()) {
-                jugadoresDb.onUpdate(db, nombre, price, position, puntos)
-                //println("$nombre, $price, $puntos")
-                startActivity(volver)
-            }else{
-                println("$nombre, $price, $puntos, $position, $id")
-
-                jugadoresDb.onAlter(db, id, nombre, price, position, puntos)
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle("ACEPTAR")
+            builder.setMessage("Los datos se guardarán en la base de datos.¿Está seguro?")
+            builder.setPositiveButton("SI") { dialog, which ->
+                id=binding.codigo.text.toString()
+                nombre = binding.nombre.text.toString()
+                position = binding.posicion.selectedItem.toString()
+                price = binding.precio.text.toString()
+                puntos = binding.puntos.text.toString()
+                if(binding.codigo.text.toString().isEmpty()) {
+                    jugadoresDb.onUpdate(db, nombre, price, position, puntos)
+                    //println("$nombre, $price, $puntos")
+                    startActivity(volver)
+                }else{
+                    jugadoresDb.onAlter(db, id, nombre, price, position, puntos)
+                    startActivity(volver)
+                }
+            }
+            builder.setNegativeButton("NO") { dialog, which ->
                 startActivity(volver)
             }
+
+            builder.setNeutralButton("CANCELAR") { dialog, which ->
+            }
+            builder.show()
+
         }
 
         binding.delete.setOnClickListener {
-            id=binding.codigo.text.toString()
-            jugadoresDb.onDelete(db,id)
-            startActivity(volver)
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle("ACEPTAR")
+            builder.setMessage("Los datos se borrarán de la base de datos.¿Está seguro?")
+            builder.setPositiveButton("SI") { dialog, which ->
+                id=binding.codigo.text.toString()
+                jugadoresDb.onDelete(db,id)
+                startActivity(volver)
+            }
+            builder.setNegativeButton("NO") { dialog, which ->
+                startActivity(volver)
+            }
+
+            builder.setNeutralButton("CANCELAR") { dialog, which ->
+            }
+            builder.show()
+
+
         }
     }
 

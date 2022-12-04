@@ -39,11 +39,6 @@ class JugadoresSql(context: Context?, database : String)
 
 
     fun onAlter(db: SQLiteDatabase, id: String, name: String, precio: String, posicion: String, puntos: String){
-        println("nombre = '$name'" +
-            "precio='$precio'" +
-                    "posicion='$posicion'" +
-                    "puntos='$puntos'" +
-                    "WHERE codigo = '$id'")
         var sentencia = "UPDATE Jugadores " +
                 "SET nombre = '$name', " +
                 "precio=$precio, " +
