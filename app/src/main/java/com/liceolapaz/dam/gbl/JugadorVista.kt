@@ -52,67 +52,76 @@ class JugadorVista : AppCompatActivity() {
 
 
         binding.add.setOnClickListener {
-            val builder = AlertDialog.Builder(ContextThemeWrapper(this, R.style.AlertDialogCustom))
-            builder.setTitle("ACEPTAR")
-            builder.setMessage("Los datos se guardarán en la base de datos.¿Está seguro?")
-            builder.setPositiveButton("SI") { dialog, which ->
-                id=binding.codigo.text.toString()
-                nombre = binding.nombre.text.toString()
-                position = binding.posicion.selectedItem.toString()
-                price = binding.precio.text.toString()
-                puntos = binding.puntos.text.toString()
-                if(binding.codigo.text.toString().isEmpty()) {
-                    jugadoresDb.onUpdate(db, nombre, price, position, puntos)
-                    //println("$nombre, $price, $puntos")
-                    startActivity(volver)
-                }else{
-                    jugadoresDb.onAlter(db, id, nombre, price, position, puntos)
+            id=binding.codigo.text.toString()
+            nombre = binding.nombre.text.toString()
+            position = binding.posicion.selectedItem.toString()
+            price = binding.precio.text.toString()
+            puntos = binding.puntos.text.toString()
+            if(binding.nombre.text.isEmpty() || binding.precio.text.isEmpty() || binding.puntos.text.isEmpty() ){
+                Toast.makeText(this, "DEBE RELLENAR TODOS LOS CAMPOS EXCEPTO CODIGO", Toast.LENGTH_LONG).show()
+            }else {
+                val builder =
+                    AlertDialog.Builder(ContextThemeWrapper(this, R.style.AlertDialogCustom))
+                builder.setTitle("ACEPTAR")
+                builder.setMessage("Los datos se guardarán en la base de datos.¿Está seguro?")
+                builder.setPositiveButton("SI") { dialog, which ->
+                    if (binding.codigo.text.isEmpty()) {
+                        jugadoresDb.onUpdate(db, nombre, price, position, puntos)
+                        //println("$nombre, $price, $puntos")
+                        startActivity(volver)
+                    } else {
+                        jugadoresDb.onAlter(db, id, nombre, price, position, puntos)
+                        startActivity(volver)
+                    }
+                }
+                builder.setNegativeButton("NO") { dialog, which ->
                     startActivity(volver)
                 }
-            }
-            builder.setNegativeButton("NO") { dialog, which ->
-                startActivity(volver)
-            }
 
-            builder.setNeutralButton("CANCELAR") { dialog, which ->
+                builder.setNeutralButton("CANCELAR") { dialog, which ->
+                }
+                builder.show()
             }
-            builder.show()
-
         }
 
         binding.delete.setOnClickListener {
-            val builder = AlertDialog.Builder(ContextThemeWrapper(this, R.style.AlertDialogCustom))
-            builder.setTitle("ACEPTAR")
-            builder.setMessage("Los datos se borrarán de la base de datos.¿Está seguro?")
-            builder.setPositiveButton("SI") { dialog, which ->
-                id=binding.codigo.text.toString()
-                jugadoresDb.onDelete(db,id)
-                startActivity(volver)
-            }
-            builder.setNegativeButton("NO") { dialog, which ->
-                startActivity(volver)
-            }
+            if(binding.nombre.text.isEmpty() || binding.precio.text.isEmpty() || binding.puntos.text.isEmpty() ){
+                Toast.makeText(this, "DEBE RELLENAR TODOS LOS CAMPOS EXCEPTO CODIGO", Toast.LENGTH_LONG).show()
+            }else {
+                val builder =
+                    AlertDialog.Builder(ContextThemeWrapper(this, R.style.AlertDialogCustom))
+                builder.setTitle("ELIMINAR")
+                builder.setMessage("Los datos se borrarán de la base de datos.¿Está seguro?")
+                builder.setPositiveButton("SI") { dialog, which ->
+                    id = binding.codigo.text.toString()
+                    jugadoresDb.onDelete(db, id)
+                    startActivity(volver)
+                }
+                builder.setNegativeButton("NO") { dialog, which ->
+                    startActivity(volver)
+                }
 
-            builder.setNeutralButton("CANCELAR") { dialog, which ->
+                builder.setNeutralButton("CANCELAR") { dialog, which ->
+                }
+                builder.show()
             }
-            builder.show()
-
-
-        }
-
-        binding.cancel.setOnClickListener {
-            val builder = AlertDialog.Builder(ContextThemeWrapper(this, R.style.AlertDialogCustom))
-            builder.setTitle("ACEPTAR")
-            builder.setMessage("Los datos no se guardarán.¿Está seguro?")
-            builder.setPositiveButton("SI") { dialog, which ->
-                startActivity(volver)
-            }
-            builder.setNegativeButton("NO") { dialog, which ->
 
             }
-            builder.show()
 
-        }
+            binding.cancel.setOnClickListener {
+                val builder = AlertDialog.Builder(ContextThemeWrapper(this, R.style.AlertDialogCustom))
+                builder.setTitle("CANCELAR")
+                builder.setMessage("Los datos no se guardarán.¿Está seguro?")
+                builder.setPositiveButton("SI") { dialog, which ->
+                    startActivity(volver)
+                }
+                builder.setNegativeButton("NO") { dialog, which ->
+
+                }
+                builder.show()
+
+            }
+
     }
 
     private fun getIndex(spinner: Spinner, myString: String): Int {
